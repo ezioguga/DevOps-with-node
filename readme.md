@@ -20,7 +20,17 @@ Note: %cd% for cmd
 12. docker logs <container name>
 13. docker run -v ${pwd}:/app -v /app/node_modules -p 5000:5000 -d --name node-app node-app-image -> (bind mount + anonymous volume)-> extra -v to specify dont touch the node_modules so volume sync won't overwrite the node_modules
 14. docker run -v ${pwd}:/app:ro -v /app/node_modules -p 5000:5000 -d --name node-app node-app-image -> make it read only
-
+15. docker run -v ${pwd}:/app:ro -v /app/node_modules --env PORT=4000 -p 5000:4000 -d --name node-app node-app-image -> we can overwrite the default env variable
+16. docker run -v ${pwd}:/app:ro -v /app/node_modules --env-file ./.env -p 5000:4000 -d --name node-app node-app-image -> load env variables from the file .env
+17. docker volume rm <volume name> -> to remove volume
+18. docker rm <container name> -fv -> it'll delete the volume associated with that container
+19. docker volume prune -> to delete all volumes
+20. docker-compose up -d -> to run docker-compose
+21. docker-compose down -v -> to stop docker container and remove anonymous volume associated with that.
+22. docker-compose up -d --build -> force to new build image
+23. docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d -> to run docker container from dev environment
+24. docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v -> to stop docker container from dev environment
+25. docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build -> to build image and run docker container from prod environment
 ```
 - Version: 1.0.0
 - License: MIT
