@@ -6,7 +6,9 @@ services:
             args: 
                 NODE_ENV: development
         volumes:
+            # Bind mount
             - ./:/app
+            # Anonymous Volume
             - /app/node_modules
         environment: 
             - NODE_ENV=development

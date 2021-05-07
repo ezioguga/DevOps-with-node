@@ -31,6 +31,7 @@ Note: %cd% for cmd
 23. docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d -> to run docker container from dev environment
 24. docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v -> to stop docker container from dev environment
 25. docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build -> to build image and run docker container from prod environment
+26. docker exec -it learndocker_mongo_1 mongo -u "<MONGODBUSERNAME>" -p "<MONGODB Password>" -> to directly connect to mongoshell
 ```
 - Version: 1.0.0
 - License: MIT
